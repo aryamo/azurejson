@@ -1,2 +1,2 @@
 # azurejson
-GitHub to handout tool.
+Azure JSON script hand tools on GitHub.

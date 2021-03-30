@@ -1,0 +1,32 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sshPublicKeys_name": {
+            "defaultValue": "MySSHKey1",
+            "type": "String"
+        },
+		"location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
+        },
+		"sshPublicKeys": {
+              "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/sshPublicKeys",
+            "apiVersion": "2020-12-01",
+            "name": "[parameters('sshPublicKeys_name')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "publicKey": "[parameters('sshPublicKeys')]"
+            }
+        }
+    ]
+}
